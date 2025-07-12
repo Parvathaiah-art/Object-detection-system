@@ -1,0 +1,236 @@
+/* Custom styles for AI Border Security Application */
+
+/* General styles */
+body {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+/* Navbar active state */
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #0dcaf0;
+}
+
+/* Card styling */
+.card {
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #2c3034;
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-info {
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    color: #000;
+}
+
+/* Input styling */
+.form-control, .form-select {
+    background-color: #343a40;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #3a4046;
+    color: #fff;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Detection canvas */
+.detection-canvas {
+    border: 2px solid #495057;
+    border-radius: 0.5rem;
+    background-color: #343a40;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Feature icon styling */
+.feature-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-icon.bg-primary {
+    background-color: rgba(13, 110, 253, 0.2);
+    color: #0d6efd;
+}
+
+.feature-icon.bg-success {
+    background-color: rgba(25, 135, 84, 0.2);
+    color: #198754;
+}
+
+.feature-icon.bg-info {
+    background-color: rgba(13, 202, 240, 0.2);
+    color: #0dcaf0;
+}
+
+.feature-icon.bg-warning {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2c3034;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+/* Webcam container */
+.webcam-container {
+    position: relative;
+    width: 100%;
+}
+
+.webcam-video, .webcam-canvas {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Chart containers */
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 2rem;
+}
+
+/* Detection list styling */
+.detection-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Logs filter controls */
+.logs-filters {
+    background-color: #343a40;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Image preview styling */
+.image-preview-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1rem;
+}
+
+/* Stats card styling */
+.stats-card {
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #343a40;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stats-card .stats-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stats-card .stats-value {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.stats-card .stats-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+}
+
+/* File upload styling */
+.file-upload-container {
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px;
+    }
+    
+    .file-upload-container {
+        padding: 1rem;
+    }
+    
+    .webcam-controls {
+        flex-direction: column;
+    }
+    
+    .webcam-controls .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Dark theme adjustments for modal */
+.modal-content {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header, .modal-footer {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.close {
+    color: #fff;
+}

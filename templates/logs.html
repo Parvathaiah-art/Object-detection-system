@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <h1>Detection Logs</h1>
+        <p class="lead">View and filter historical detection data</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card logs-filters">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="sourceFilter" class="form-label">Source Type</label>
+                        <select class="form-select" id="sourceFilter">
+                            <option value="all" selected>All Sources</option>
+                            <!-- Source options will be populated by JS -->
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="dateFilter" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="dateFilter">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="objectFilter" class="form-label">Object Class</label>
+                        <input type="text" class="form-control" id="objectFilter" placeholder="e.g. person, car">
+                    </div>
+                    <div class="col-md-3 mb-3 d-flex align-items-end">
+                        <div class="d-grid w-100">
+                            <button class="btn btn-secondary" id="clearFilters">
+                                <i class="fas fa-sync-alt me-2"></i>Clear Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-9">
+                        <p class="mb-0" id="filterSummary">Loading logs...</p>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <button class="btn btn-outline-info" id="exportLogs">
+                            <i class="fas fa-download me-2"></i>Export Logs
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div id="logsContainer">
+            <!-- Logs table will be inserted here by JS -->
+            <div class="text-center py-5">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3">Loading detection logs...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Log Details Modal -->
+<div class="modal fade" id="logDetailsModal" tabindex="-1" aria-labelledby="logDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logDetailsModalLabel">Log Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="logDetailsModalBody">
+                <!-- Log details will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- No Logs Message (shown if no logs exist) -->
+<div class="row d-none" id="noLogsMessage">
+    <div class="col-lg-12">
+        <div class="alert alert-info">
+            <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>No Detection Logs Found</h4>
+            <p>There are no detection logs available yet. Try using the system to detect objects in images, videos, or webcam feed.</p>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <a href="/image-upload" class="btn btn-outline-primary">
+                    <i class="fas fa-image me-2"></i>Try Image Detection
+                </a>
+                <a href="/video-upload" class="btn btn-outline-success">
+                    <i class="fas fa-video me-2"></i>Try Video Detection
+                </a>
+                <a href="/webcam" class="btn btn-outline-info">
+                    <i class="fas fa-camera me-2"></i>Try Webcam Detection
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Log Activity Guide -->
+<div class="row mt-4">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Understanding Detection Logs</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6><i class="fas fa-filter me-2"></i>Filtering Logs</h6>
+                        <p class="small text-muted">Use the filters above to narrow down logs by source type, date, or object class. Click "Clear Filters" to reset.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6><i class="fas fa-eye me-2"></i>Viewing Details</h6>
+                        <p class="small text-muted">Click the "View" button on any log entry to see detailed information about the detected objects.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6><i class="fas fa-download me-2"></i>Exporting Data</h6>
+                        <p class="small text-muted">Use the "Export Logs" button to download the current filtered logs as a JSON file for reporting or analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/logs.js') }}"></script>
+{% endblock %}

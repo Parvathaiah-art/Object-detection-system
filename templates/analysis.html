@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <h1>Detection Analysis</h1>
+        <p class="lead">Visualize and analyze detection statistics</p>
+    </div>
+</div>
+
+<!-- Statistics Overview -->
+<div class="row">
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stats-card">
+            <div class="stats-icon text-primary">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="stats-value" id="totalDetections">--</div>
+            <div class="stats-label">Total Objects Detected</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stats-card">
+            <div class="stats-icon text-success">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="stats-value" id="avgDetectionsPerRun">--</div>
+            <div class="stats-label">Average Objects Per Run</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stats-card">
+            <div class="stats-icon text-info">
+                <i class="fas fa-tag"></i>
+            </div>
+            <div class="stats-value" id="topDetectedObject">--</div>
+            <div class="stats-label">Top Detected Object</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stats-card">
+            <div class="stats-icon text-warning">
+                <i class="fas fa-camera"></i>
+            </div>
+            <div class="stats-value" id="mostActiveSource">--</div>
+            <div class="stats-label">Most Active Source</div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row">
+    <!-- Objects by Class Chart -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Objects by Class</h5>
+            </div>
+            <div class="card-body" id="objectsByClassContainer">
+                <div class="chart-container">
+                    <canvas id="objectsByClassChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Detections by Source Chart -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Detections by Source</h5>
+            </div>
+            <div class="card-body" id="detectionsBySourceContainer">
+                <div class="chart-container">
+                    <canvas id="detectionsBySourceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timeline Chart -->
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Detections Over Time</h5>
+            </div>
+            <div class="card-body" id="detectionsOverTimeContainer">
+                <div class="chart-container">
+                    <canvas id="detectionsOverTimeChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- No Data Message (shown if no data exists) -->
+<div class="row d-none" id="noDataMessage">
+    <div class="col-lg-12">
+        <div class="alert alert-info">
+            <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>No Analysis Data Available</h4>
+            <p>There is no detection data available for analysis yet. Start by using the system to detect objects using images, videos, or webcam.</p>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <a href="/image-upload" class="btn btn-outline-primary">
+                    <i class="fas fa-image me-2"></i>Try Image Detection
+                </a>
+                <a href="/video-upload" class="btn btn-outline-success">
+                    <i class="fas fa-video me-2"></i>Try Video Detection
+                </a>
+                <a href="/webcam" class="btn btn-outline-info">
+                    <i class="fas fa-camera me-2"></i>Try Webcam Detection
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Analysis Info -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Understanding the Analysis</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-chart-bar me-2"></i>Objects by Class</h6>
+                        <p class="small text-muted">This chart shows the distribution of detected objects by their class. It helps identify the most common objects in your monitored areas.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-chart-pie me-2"></i>Detections by Source</h6>
+                        <p class="small text-muted">This chart shows the distribution of detections across different source types (image, video, webcam), helping you understand your usage patterns.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-chart-line me-2"></i>Timeline Analysis</h6>
+                        <p class="small text-muted">The timeline chart shows detection activity over time, helping you identify patterns, trends, or anomalies in detection frequency.</p>
+                    </div>
+                </div>
+                <div class="alert alert-info mt-3 mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    All statistics are based on detection logs stored in the system. More detections will provide more accurate and meaningful analysis.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% endblock %}

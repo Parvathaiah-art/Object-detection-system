@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <h1>Image Detection</h1>
+        <p class="lead">Upload an image to detect and identify objects</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Upload Image</h5>
+            </div>
+            <div class="card-body">
+                <form id="imageUploadForm" enctype="multipart/form-data">
+                    <div class="file-upload-container mb-3">
+                        <div class="mb-3">
+                            <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
+                            <h5>Select Image File</h5>
+                            <p class="text-muted small">Supported formats: JPG, JPEG, PNG</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="imageFile" class="form-label">Choose an image file</label>
+                            <input type="file" class="form-control" id="imageFile" name="file" accept="image/*" title="Select an image file to upload">
+                        </div>
+                        
+                        <div class="image-preview-container">
+                            <img id="imagePreview" class="image-preview d-none" alt="Image preview">
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" id="uploadBtn" class="btn btn-primary" disabled>
+                            <i class="fas fa-search me-2"></i>Detect Objects
+                        </button>
+                    </div>
+                    
+                    <div class="text-center mt-3 d-none" id="spinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Processing image...</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Detection List -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="mb-0">Detected Objects</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group detection-list" id="detectionList">
+                    <li class="list-group-item text-center text-muted">
+                        Upload an image to see detections
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Detection Results</h5>
+            </div>
+            <div class="card-body text-center">
+                <p class="text-muted mb-0" id="resultPlaceholder">
+                    The processed image with detections will appear here
+                </p>
+                <img id="resultImage" class="img-fluid mt-3 d-none" alt="Detection results">
+            </div>
+        </div>
+        
+        <!-- Detection Statistics -->
+        <div class="mt-3" id="detectionStats">
+            <!-- Stats will be inserted here -->
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mt-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">How It Works</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="mb-3">
+                            <i class="fas fa-upload fa-2x"></i>
+                        </div>
+                        <h6>Upload Image</h6>
+                        <p class="small text-muted">Select and upload an image from your device</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="mb-3">
+                            <i class="fas fa-cogs fa-2x"></i>
+                        </div>
+                        <h6>AI Processing</h6>
+                        <p class="small text-muted">AI model analyzes the image to detect objects</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="mb-3">
+                            <i class="fas fa-check-circle fa-2x"></i>
+                        </div>
+                        <h6>View Results</h6>
+                        <p class="small text-muted">See detected objects with bounding boxes and confidence scores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/image_upload.js') }}"></script>
+{% endblock %}

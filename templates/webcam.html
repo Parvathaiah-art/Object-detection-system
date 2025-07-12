@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <h1>Webcam Detection</h1>
+        <p class="lead">Real-time object detection using your webcam</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Webcam Feed</h5>
+            </div>
+            <div class="card-body text-center">
+                <!-- Video element for webcam feed (not displayed) -->
+                <video id="webcam" autoplay class="d-none"></video>
+                
+                <!-- Canvas for displaying webcam with detections -->
+                <canvas id="canvas" class="detection-canvas"></canvas>
+                
+                <!-- Hidden canvas for capturing video frames -->
+                <canvas id="captureCanvas"></canvas>
+                
+                <!-- Controls -->
+                <div class="d-flex justify-content-center mt-3 webcam-controls">
+                    <button id="startButton" class="btn btn-success me-2">
+                        <i class="fas fa-play me-2"></i>Start Webcam
+                    </button>
+                    <button id="stopButton" class="btn btn-danger" disabled>
+                        <i class="fas fa-stop me-2"></i>Stop Webcam
+                    </button>
+                </div>
+                
+                <div class="alert alert-info mt-3">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Webcam detection logs will be displayed when you stop the webcam
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-4">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Detected Objects</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush detection-list" id="detectionList">
+                    <li class="list-group-item text-center text-muted">
+                        Start webcam to see detections
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Detection Statistics</h5>
+            </div>
+            <div class="card-body" id="detectionStats">
+                <p class="text-center text-muted">No detection data available</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Webcam Logs Section (hidden initially) -->
+<div class="row d-none" id="logsSection">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Webcam Detection Logs</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div id="webcamLogs">
+                            <!-- Logs will be inserted here -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div id="logsSummary">
+                            <!-- Summary stats will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mt-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Webcam Detection Guidelines</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-lightbulb me-2"></i>Lighting</h6>
+                        <p class="small text-muted">Ensure good lighting conditions for better detection accuracy. Avoid strong backlighting.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-arrows-alt me-2"></i>Positioning</h6>
+                        <p class="small text-muted">Position objects clearly in the frame. Objects too close or too far may be difficult to detect.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-shield-alt me-2"></i>Privacy</h6>
+                        <p class="small text-muted">All processing is done locally in your browser. No video data is permanently stored.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+{% endblock %}

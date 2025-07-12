@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <h1>Video Detection</h1>
+        <p class="lead">Upload a video file to detect and track objects</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Upload Video</h5>
+            </div>
+            <div class="card-body">
+                <form id="videoUploadForm" enctype="multipart/form-data">
+                    <div class="file-upload-container mb-3">
+                        <div class="mb-3">
+                            <i class="fas fa-film fa-3x mb-3"></i>
+                            <h5>Select Video File</h5>
+                            <p class="text-muted small">Supported formats: MP4, AVI, MOV, MKV (Max 25MB)</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="videoFile" class="form-label">Choose a video file:</label>
+                            <input type="file" class="form-control" id="videoFile" name="file" accept="video/*" title="Select a video file to upload" placeholder="Choose file">
+                            <div id="fileInfo" class="form-text mt-2 d-none"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" id="uploadBtn" class="btn btn-primary" disabled>
+                            <i class="fas fa-search me-2"></i>Process Video
+                        </button>
+                    </div>
+                    
+                    <!-- Upload Progress -->
+                    <div class="mt-3 d-none" id="progressContainer">
+                        <label for="progressBar" class="form-label">Upload Progress</label>
+                        <div class="progress custom-progress-height">
+                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                                 role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" 
+                                 title="Upload progress">0%</div>
+                        </div>
+                        <p class="text-muted mt-2 small">
+                            <i class="fas fa-info-circle me-1"></i>
+                            Video analysis may take some time depending on the file size
+                        </p>
+                    </div>
+                    
+                    <div class="text-center mt-3 d-none" id="spinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Processing video...</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">Processing Info</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>How Video Processing Works</strong>
+                </div>
+                <ul class="mb-0">
+                    <li class="mb-2">Upload your video file (up to 25MB)</li>
+                    <li class="mb-2">The system analyzes the video frame by frame</li>
+                    <li class="mb-2">Objects are detected in each frame using AI</li>
+                    <li class="mb-2">Results are compiled into a detection timeline</li>
+                    <li>All detections are logged for later review</li>
+                </ul>
+                
+                <div class="alert alert-warning mt-3">
+                    <i class="fas fa-clock me-2"></i>
+                    Processing time increases with video length
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Results Section (hidden initially) -->
+<div class="row d-none" id="resultContainer">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Detection Results</h5>
+            </div>
+            <div class="card-body">
+                <div id="detectionList">
+                    <!-- Timeline of detections will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-12 mb-4">
+        <div id="detectionStats">
+            <!-- Statistics will be inserted here -->
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mt-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Best Practices for Video Analysis</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-film me-2"></i>Video Quality</h6>
+                        <p class="small text-muted">Higher quality videos produce better detection results. Use videos with good lighting and resolution.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-ruler me-2"></i>Object Size</h6>
+                        <p class="small text-muted">Objects that are too small in the frame may not be detected. Ensure objects of interest are clearly visible.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6><i class="fas fa-hourglass-half me-2"></i>Video Length</h6>
+                        <p class="small text-muted">Shorter videos process faster. For long recordings, consider splitting them into smaller segments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/video_upload.js') }}"></script>
+{% endblock %}

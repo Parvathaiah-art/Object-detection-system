@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 text-center mb-4">
+        <h1 class="display-4">AI Border Security System</h1>
+        <p class="lead">Advanced object detection and monitoring for security applications</p>
+    </div>
+</div>
+
+<div class="row justify-content-center mb-5">
+    <div class="col-lg-10">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">System Overview</h2>
+                <p class="card-text">
+                    The AI Border Security System is an advanced surveillance and monitoring solution that uses artificial intelligence 
+                    to detect and identify objects in images, videos, and real-time camera feeds. Designed for security applications, 
+                    the system can identify people, vehicles, and other objects of interest to help secure borders and sensitive areas.
+                </p>
+                <p class="card-text">
+                    Using state-of-the-art object detection algorithms, the system processes visual data in real-time and maintains 
+                    comprehensive logs of all detections for later review and analysis.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-lg-12">
+        <h2 class="text-center mb-4">Key Features</h2>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-primary mx-auto">
+                    <i class="fas fa-image"></i>
+                </div>
+                <h3 class="card-title h5">Image Detection</h3>
+                <p class="card-text">Upload images for object detection and identification. Identify multiple objects in a single image.</p>
+                <a href="/image-upload" class="btn btn-sm btn-outline-primary mt-2">Try Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-success mx-auto">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3 class="card-title h5">Video Processing</h3>
+                <p class="card-text">Analyze video files frame by frame to detect and track objects throughout the footage.</p>
+                <a href="/video-upload" class="btn btn-sm btn-outline-success mt-2">Try Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-info mx-auto">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3 class="card-title h5">Webcam Monitoring</h3>
+                <p class="card-text">Real-time object detection using your webcam. Monitor live and review logs when stopped.</p>
+                <a href="/webcam" class="btn btn-sm btn-outline-info mt-2">Try Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-warning mx-auto">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="card-title h5">Analysis & Logs</h3>
+                <p class="card-text">Comprehensive logs and statistical analysis of all detections for review and reporting.</p>
+                <a href="/logs" class="btn btn-sm btn-outline-warning mt-2">View Logs</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="h5 mb-0">Getting Started</h3>
+            </div>
+            <div class="card-body">
+                <ol class="mb-0">
+                    <li class="mb-2">Choose an input method (Image, Video, or Webcam)</li>
+                    <li class="mb-2">Upload a file or start your webcam</li>
+                    <li class="mb-2">View the detection results in real-time</li>
+                    <li class="mb-2">Check the logs section for historical data</li>
+                    <li>Analyze detection statistics and trends</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="h5 mb-0">Detection Capabilities</h3>
+            </div>
+            <div class="card-body">
+                <p>The system can detect and identify a wide range of objects, including:</p>
+                <div class="row">
+                    <div class="col-6">
+                        <ul class="mb-0">
+                            <li>People</li>
+                            <li>Vehicles (cars, trucks, etc.)</li>
+                            <li>Animals</li>
+                            <li>Luggage and backpacks</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul class="mb-0">
+                            <li>Weapons</li>
+                            <li>Electronic devices</li>
+                            <li>Tools and equipment</li>
+                            <li>Many other objects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
