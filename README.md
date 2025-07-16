@@ -1,4 +1,5 @@
 # Object-detection-system
+<p>The Object detection system is an AI/ML model. This model detects the objects and any other living beings. This model works with live webcam, by images and videos. When system detects something it will display detection log eith detected objects,humans, animals, birds and so on. In this model, we can check detected objects, the detction log contains object name , time, date. We can also download detection log.</p>
  # To run the appliction, 
  -open visual studio code (vs code) <br>
  -open dowloaded folder <br>
