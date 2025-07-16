@@ -7,4 +7,6 @@
  -now use this command <br>
       python main.py <br>
  -Now, a localhost address will display click on it <br>
- -it will direct to the application webpage <br>
+ -it will direct to the application webpage <br> <br>
+ # Website Screens
+ <img src="Images/Screenshot 2025-05-08 200239.png" alt="Screen1">
