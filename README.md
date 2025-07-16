@@ -1,5 +1,5 @@
 # Object-detection-system
-<p>The Object detection system is an AI/ML model. This model detects the objects and any other living beings. This model works with live webcam, by images and videos. When system detects something it will display detection log eith detected objects,humans, animals, birds and so on. In this model, we can check detected objects, the detction log contains object name , time, date. We can also download detection log.</p>
+The Object detection system is an AI/ML model. This model detects the objects and any other living beings. This model works with live webcam, by images and videos. When system detects something it will display detection log eith detected objects,humans, animals, birds and so on. In this model, we can check detected objects, the detction log contains object name , time, date. We can also download detection log. This model visualizes the detection in bar grapgh and pie charts and this make easy to analysis ' What are the detected objects?'.
  # To run the appliction, 
  -open visual studio code (vs code) <br>
  -open dowloaded folder <br>
@@ -11,11 +11,11 @@
  -it will direct to the application webpage <br> <br>
  # Inputs to the  project
  - This project detect object in three ways.Those are,<br>
-   # 1.Upload an Image
+   <h3>1.Upload an Image</h3>
  - By uploading an imge, this model detects objects and any living beings in the image.
-   # 2.Uploading a video
+   <h3>2.Uploading a video</h3>
  - By uploading an video, this model detects objects and any living being in the video.
-   # 3. Using Live webcam/ Device webcam
+   <h3>3. Using Live webcam/ Device webcam</h3>
  - by enabling webcam , this model detects objeccts and any livinb being in the live webcam.
  # Website Screens
   <img src="Images/Screenshot 2025-05-08 200239.png" alt="Screen1"><br>
