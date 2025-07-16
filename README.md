@@ -5,8 +5,10 @@ The Object detection system is an AI/ML model. This model detects the objects an
  -open dowloaded folder <br>
  -open terminal <br>
  -direct to the folder path <br>
+ -install required modules/packages for this model.Use this command to install requirements file.<br>
+ <b> >>> pip install -r requirements.txt</b><br>
  -now use this command <br>
-      python main.py <br>
+    <b> >>> python main.py</b> <br>
  -Now, a localhost address will display click on it <br>
  -it will direct to the application webpage <br> <br>
  # Inputs to the  project
