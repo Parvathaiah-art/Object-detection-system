@@ -20,19 +20,20 @@ A comprehensive Object Detection System utilizing modern web and machine learnin
 - **OpenCV**: For image and video processing.
 
 ## Getting Started
+-
+Follow these steps to set up and run the Object Detection System on your local machine:
 
 ### Prerequisites
 
-- Python 3.x
-- pip (Python package manager)
-- [Any specific Python or JS dependencies, e.g., Flask, TensorFlow, etc.]
-
+- Python 3.7 or higher installed.
+- pip (Python package installer).
+- (Optional) A virtual environment tool like venv or conda.
 ### Installation
 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Parvathaiah-art/Object-detection-system.git
-   cd Object-detection-system
+   cd Object-detection-syste
    ```
 
 2. **Install Python dependencies:**
