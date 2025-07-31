@@ -59,14 +59,14 @@ Follow these steps to set up and run the Object Detection System on your local m
 ## Project Structure
 
 ```
-/Object-detection-system
-├── backend/            # Python backend, detection models, APIs
-├── frontend/           # HTML, CSS, JS web interface
-├── static/             # Static files (images, CSS, JS)
-├── templates/          # HTML templates (if using Flask/Django)
-├── requirements.txt    # Python dependencies
-├── package.json        # JavaScript dependencies (if applicable)
-└── README.md
+/Object-detection-system <br>
+├── backend/            # Python backend, detection models, APIs <br>
+├── frontend/           # HTML, CSS, JS web interface<br>
+├── static/             # Static files (images, CSS, JS)<br>
+├── templates/          # HTML templates (if using Flask/Django)<br>
+├── requirements.txt    # Python dependencies<br>
+├── package.json        # JavaScript dependencies (if applicable)<br>
+└── README.md<br>
 ```
 
 ## Contributing
