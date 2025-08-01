@@ -44,7 +44,7 @@ Follow these steps to set up and run the Object Detection System on your local m
 4. **Run the application:**
    - **Start the Python backend:**
      ```bash
-     python app.py
+     python main.py
      ```
 
 5. **Access the system:**  
